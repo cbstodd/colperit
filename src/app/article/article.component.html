@@ -1,0 +1,24 @@
+<!-- * Article * -->
+<div class="media" *ngFor="let article of articles">
+    <hr>
+    <div class="media-left">
+        <a href="#"> <img src="http://www.placehold.it/100x125" class="media-object" alt="{{article.title}}"> </a>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading">
+            {{ article.title }}
+            <button type="button" class="btn btn-default btn-sm active">
+                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{ article.votes }}
+            </button>
+        </h3>
+        <p class="vote-buttons">
+            <a href="#" class="label label-default" (click)="upvote();">
+                <span class="glyphicon glyphicon-arrow-up"></span>Upvote</a>
+            <a href="#" class="label label-default" (click)="downvote();">
+                <span class="glyphicon glyphicon-arrow-down"></span>Downvote</a>
+        </p>
+        <p class="article-date">{{ article.date() | date:'medium' }}</p>
+        <p>{{ article.description }}</p>
+        <a href="#" class="read-more btn btn-default btn-sm"><span class="glyphicon glyphicon-book"></span>&nbsp;Read more</a>
+    </div>
+</div>

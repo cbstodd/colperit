@@ -1,0 +1,12 @@
+a.read-more {
+    float: right;
+}
+
+.article-date {
+    font-style: italic;
+    font-size: smaller;
+}
+
+p.vote-buttons {
+    font-size: smaller;
+}

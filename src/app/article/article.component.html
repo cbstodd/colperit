@@ -1,5 +1,5 @@
 <!-- * Article * -->
-<div class="media" *ngFor="let article of articles">
+<div class="media">
     <hr>
     <div class="media-left">
         <a href="#"> <img src="http://www.placehold.it/100x125" class="media-object" alt="{{article.title}}"> </a>
@@ -17,7 +17,7 @@
             <a href="#" class="label label-default" (click)="downvote();">
                 <span class="glyphicon glyphicon-arrow-down"></span>Downvote</a>
         </p>
-        <p class="article-date">{{ article.date() | date:'medium' }}</p>
+        <p class="article-date">{{ article.publishedAt | date:'medium' }}</p>
         <p>{{ article.description }}</p>
         <a href="#" class="read-more btn btn-default btn-sm"><span class="glyphicon glyphicon-book"></span>&nbsp;Read more</a>
     </div>

@@ -5,6 +5,6 @@
     </div>
     <div class="col-sm-9">
         <h1>{{title}} </h1>
-        <cit-article></cit-article>
+        <cit-article [article]="article" *ngFor="let article of articles"></cit-article>
     </div>
 </div>

@@ -1,8 +1,9 @@
 export class Article {
 
-    public publishedAt: Date;
+    public publishedAt:Date;
 
-    constructor(public title:string,
+    constructor(public imageUrl:string,
+                public title:string,
                 public description:string,
                 public votes?:number) {
         this.votes = votes || 0;

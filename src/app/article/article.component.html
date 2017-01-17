@@ -2,16 +2,16 @@
 <div class="media">
     <hr>
     <div class="media-left">
-        <a href="#"><img [src]="article.imageUrl" class="media-object" alt="{{article.title}}"></a>
+        <a href="{{article.url}}" target="_blank"><img [src]="article.imageUrl" class="media-object img-thumbnail article-img" alt="{{article.title}}"></a>
     </div>
     <div class="media-body">
-        <h3 class="media-heading">
-            {{ article.title }}
+        <h4 class="media-heading">
+            <a href="{{article.url}}" target="_blank">{{ article.title }}</a>
+        </h4>
+        <p class="vote-buttons">
             <button type="button" class="btn btn-default btn-sm active">
                 <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{ article.votes }}
             </button>
-        </h3>
-        <p class="vote-buttons">
             <a href="#" class="label label-default" (click)="upvote();">
                 <span class="glyphicon glyphicon-arrow-up"></span>Upvote</a>
             <a href="#" class="label label-default" (click)="downvote();">
@@ -19,6 +19,6 @@
         </p>
         <p class="article-date">{{ article.publishedAt | date:'medium' }}</p>
         <p>{{ article.description }}</p>
-        <a href="#" class="read-more btn btn-default btn-sm"><span class="glyphicon glyphicon-book"></span>&nbsp;Read more</a>
+        <a [href]="article.url" class="read-more btn btn-default btn-sm"><span class="glyphicon glyphicon-book"></span>&nbsp;Read more</a>
     </div>
 </div>

@@ -10,3 +10,7 @@ a.read-more {
 p.vote-buttons {
     font-size: smaller;
 }
+
+.article-img {
+    max-width:  175px;
+}

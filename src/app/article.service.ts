@@ -1,37 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Article } from './article/article';
+import { Http, URLSearchParams } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+
+const baseUrl = 'https://newsapi.org';
+const newsApiKey = '02d31ec592c945299981944f37bfac3c';
 
 @Injectable()
 export class ArticleService {
 
-    constructor() {
+    constructor(private http:Http) {
     }
 
     public getArticles():Promise<Article[]> {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve([
-                    new Article(
-                        "http://lorempixel.com/100/125/technics",
-                        "The Angular 2 Screencast",
-                        "The easiest way to learn Angular2!",
-                        10
-                    ),
-                    new Article(
-                        "http://lorempixel.com/100/125/technics",
-                        "Learn Ruby on Rails",
-                        "Course on Udemy on Ruby on Rails testing and Action Cable"
-                    ),
-                    new Article(
-                        "http://lorempixel.com/100/125/technics",
-                        "Learn TypeScript",
-                        "Using books and video tutorials to learn TypeScript and ES6",
-                        4
-                    )
+        let params = new URLSearchParams();
+        params.set('apiKey', newsApiKey);
+        params.set('source', 'reddit-r-all');
 
-                ])
-            }, 1000)
-        });
+        return this.http
+            .get(`${baseUrl}/v1/articles`, {
+                search: params
+            })
+            .toPromise()
+            .then(resp => resp.json())
+            .then(json => json.articles)
+            .then(articles => {
+                return articles
+                    .map(article => Article.fromJSON(article));
+            })
+            .catch(err => {
+                console.log("We got an error", err);
+            });
+
 
     }
 

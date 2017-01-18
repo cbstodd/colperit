@@ -7,6 +7,7 @@ import { ArticleService } from '../article.service';
     templateUrl: './article-list.component.html',
     styleUrls: ['./article-list.component.css']
 })
+
 export class ArticleListComponent implements OnInit {
 
     private articles:Article[];

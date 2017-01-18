@@ -17,7 +17,7 @@ export class Article {
         let article = Object.create(Article.prototype);
         return Object.assign(article, json, {
             votes: json.votes ? json.votes : 0,
-            imageUrl: json.urlToImage ? json.urlToImage : 'http://www.placehold.it/100x125',
+            imageUrl: json.urlToImage ? json.urlToImage : 'https://www.redditstatic.com/icon.png',
             publishedAt: json.publishedAt ?
                 new Date(json.publishedAt) :
                 new Date()
